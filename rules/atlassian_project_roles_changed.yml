@@ -1,0 +1,19 @@
+# schema: https://scanner.dev/schema/scanner-detection-rule.v1.json
+name: Atlassian Jira Project Roles Changed
+description: |-
+  Detect when project roles are changed in Atlassian Jira.
+enabled: true
+severity: Medium
+query_text: |-
+  %ingest.source_type:atlassian
+  message.content:'Project roles changed'
+  | groupbycount(attributes.actor.email)
+  | where @q.count > 0
+time_range_s: 300
+run_frequency_s: 60
+event_sink_keys:
+- medium_severity_alerts
+tags:
+- tactics.ta0040.impact
+- techniques.t1531.account_access_removal
+- source.atlassian

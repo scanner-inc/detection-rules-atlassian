@@ -1,0 +1,22 @@
+# schema: https://scanner.dev/schema/scanner-detection-rule.v1.json
+name: Atlassian User Added to Admin Group
+description: |-
+  Detect when an Atlassian user is added to an administrative group.
+  An attacker may attempt to assign a compromised identity to an
+  administrative group to elevate their privileges.
+enabled: true
+severity: Low
+query_text: |-
+  %ingest.source_type:atlassian
+  attributes.action:user_added_to_group
+  attributes.context.attributes.groupName:(admin* administrator*)
+  | groupbycount(attributes.actor.email)
+  | where @q.count > 0
+time_range_s: 300
+run_frequency_s: 60
+event_sink_keys:
+- low_severity_alerts
+tags:
+- tactics.ta0004.privilege_escalation
+- techniques.t1098.account_manipulation
+- source.atlassian

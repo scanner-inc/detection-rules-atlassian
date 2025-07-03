@@ -1,0 +1,22 @@
+# schema: https://scanner.dev/schema/scanner-detection-rule.v1.json
+name: Atlassian User Invited to Organization as Admin
+description: |-
+  Detect when an Atlassian user is invited to the organization with the organizational
+  administrator role. An attacker may attempt to invite additional identities to the
+  organization with administrative privileges.
+enabled: true
+severity: Medium
+query_text: |-
+  %ingest.source_type:atlassian
+  attributes.action:user_invite_to_org
+  attributes.context.attributes.groupName:'org-admins'
+  | groupbycount(attributes.actor.email)
+  | where @q.count > 0
+time_range_s: 300
+run_frequency_s: 60
+event_sink_keys:
+- medium_severity_alerts
+tags:
+- tactics.ta0004.privilege_escalation
+- techniques.t1098.account_manipulation
+- source.atlassian

@@ -7,7 +7,7 @@ description: |-
 enabled: true
 severity: Medium
 query_text: |-
-  %ingest.source_type:"atlassian:audit"
+  %ingest.source_type:atlassian
   message.content:'Global permission added'
   | groupbycount(attributes.actor.email)
   | where @q.count > 0

@@ -7,7 +7,7 @@ description: |-
 enabled: true
 severity: Medium
 query_text: |-
-  %ingest.source_type:"atlassian:audit"
+  %ingest.source_type:atlassian
   message.content:'User created'
   attributes.context.attributes.name:USER
   | groupbycount(attributes.actor.email)

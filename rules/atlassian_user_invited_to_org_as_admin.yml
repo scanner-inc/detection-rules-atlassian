@@ -7,7 +7,7 @@ description: |-
 enabled: true
 severity: Medium
 query_text: |-
-  %ingest.source_type:"atlassian:audit"
+  %ingest.source_type:atlassian
   attributes.action:user_invite_to_org
   attributes.context.attributes.groupName:'org-admins'
   | groupbycount(attributes.actor.email)

@@ -7,7 +7,7 @@ description: |-
 enabled: true
 severity: High
 query_text: |-
-  %ingest.source_type:atlassian
+  @scnr.source_type:atlassian
   attributes.action:user_logged_in_as_user
   | groupbycount(attributes.actor.email)
   | where @q.count > 0

@@ -7,7 +7,7 @@ description: |-
 enabled: true
 severity: Medium
 query_text: |-
-  %ingest.source_type:atlassian
+  @scnr.source_type:atlassian
   attributes.action:(api_token_created api_token_revoked)
   | groupbycount(attributes.actor.email)
   | where @q.count > 0

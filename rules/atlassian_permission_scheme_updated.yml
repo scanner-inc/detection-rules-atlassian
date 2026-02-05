@@ -2,7 +2,6 @@
 name: Atlassian Jira Permission Scheme Updated
 description: |-
   Detect when a permission scheme is updated in Atlassian Jira.
-enabled: true
 severity: Medium
 query_text: |-
   @scnr.source_type:atlassian

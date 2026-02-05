@@ -2,7 +2,6 @@
 name: Atlassian Jira Workflow Scheme Copied
 description: |-
   Detect when a workflow scheme is copied in Atlassian Jira.
-enabled: true
 severity: Medium
 query_text: |-
   @scnr.source_type:atlassian

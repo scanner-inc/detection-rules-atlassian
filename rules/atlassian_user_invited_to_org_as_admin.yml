@@ -4,7 +4,6 @@ description: |-
   Detect when an Atlassian user is invited to the organization with the organizational
   administrator role. An attacker may attempt to invite additional identities to the
   organization with administrative privileges.
-enabled: true
 severity: Medium
 query_text: |-
   @scnr.source_type:atlassian

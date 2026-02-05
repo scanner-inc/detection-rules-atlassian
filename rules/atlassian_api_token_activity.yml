@@ -4,7 +4,6 @@ description: |-
   Detect when an API token is created or revoked. An attacker may create or revoke an
   API token to persist within the Atlassian environment, to degrade security controls,
   or to disrupt operations.
-enabled: true
 severity: Medium
 query_text: |-
   @scnr.source_type:atlassian

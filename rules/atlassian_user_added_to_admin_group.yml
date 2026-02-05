@@ -4,7 +4,6 @@ description: |-
   Detect when an Atlassian user is added to an administrative group.
   An attacker may attempt to assign a compromised identity to an
   administrative group to elevate their privileges.
-enabled: true
 severity: Low
 query_text: |-
   @scnr.source_type:atlassian

@@ -4,7 +4,6 @@ description: |-
   Detect when global permission is added in Atlassian Jira.
   This can indicate potential privilege escalation or unauthorized
   administrative changes.
-enabled: true
 severity: Medium
 query_text: |-
   @scnr.source_type:atlassian
